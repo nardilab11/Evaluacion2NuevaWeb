@@ -2,7 +2,7 @@
 ?>
 
 <h2>Registrar Usuario Nuevo</h2>
-<form action="Controlador/CCliente.php" method="GET">
+<form action="index.php" method="GET">
     <div>Ingrese su número de teléfono:</div>
     <input type="number" name="telefonoN">
     <div>Ingrese el nombre del usuario:</div>

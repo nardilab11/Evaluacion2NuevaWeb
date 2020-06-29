@@ -11,8 +11,7 @@
  *
  * @author Nicolás
  */
-include_once '../Modelo/Cliente.php';
-
+include_once 'Modelo/Cliente.php';
 
 class CCliente {
     private $clientes = [];
@@ -24,11 +23,4 @@ class CCliente {
     public function agregarCliente(Cliente $cliente) {
         array_push($this->clientes, $cliente);
     }
-}
-unset($_GET["telefonoN"]);
-if(isset($_GET["telefonoN"])){
-    echo ("Vino de registrarUsuario");
-    
-}else{
-    echo ("No vino de registrarUsuario");
 }
