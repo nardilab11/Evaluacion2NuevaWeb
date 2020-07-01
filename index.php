@@ -18,37 +18,22 @@ include_once 'Modelo/Cliente.php';
     <body>
         <h1>Mi Tienda Online</h1>
         <?php
-        //Crear controlador cliente y cuenta administrador
-        $ccliente = new CCliente();
-        $admin = new Cliente(11112222, "admin", "admin");
-        $ccliente->agregarCliente($admin);
-        $mensajeSesion = "No hay sesión iniciada.";
-        //Iniciar sesión
-        if(isset($_GET["telefono"])){
-            foreach ($ccliente->getClientes() as $value) {
-                if($value->getTelefono() == $_GET["telefono"] && $value->getPass() == $_GET["pass"]){
-                    $_SESSION["u".strval($_GET["telefono"])] = $_GET["pass"];
-                    $mensajeSesion = "Sesion iniciada correctamente.";
-                    break;
-                }else{
-                    $mensajeSesion = "Datos no válidos. Sesión no iniciada.";
-                }
-            }
-        }
         //Validar para poder ingresar un producto
-        if(array_key_exists("u11112222", $_SESSION)){
-                if($_SESSION["u11112222"] == "admin"){
+        if(isset($_SESSION["user"])){
+                if(unserialize($_SESSION["user"])->getTelefono() == 11112222){
                     ?> <a href="MenuRegistrarProducto.php">Ingresar producto</a> <?php
             }
         }
-        ?> <a href="MenuRegistrarUsuario.php">Registrar Usuario</a> <?php
         //Sesión iniciada?
-        if($mensajeSesion == "No hay sesión iniciada." || $mensajeSesion == "Datos no válidos. Sesión no iniciada."){
-            ?> <a href="MenuInicioSesion.php">Iniciar Sesión</a> <?php
+        if(!(isset($_SESSION["user"]))){
+            ?> <a href="MenuInicioSesion.php">Iniciar Sesión</a>
+            <a href="MenuRegistrarUsuario.php">Registrar Usuario</a>  <?php
         }else{
-            ?> <a>Salir de la Sesión</a> <?php
+            ?> <a href="Controlador/CSalirSesion.php" >Salir de la Sesión</a> <?php
         }
-        echo ($mensajeSesion);
+        if(isset($_SESSION["user"])){
+            echo ("Bienveindo, ".unserialize($_SESSION["user"])->getNombre());
+        }
         ?>
     </body>
 </html>

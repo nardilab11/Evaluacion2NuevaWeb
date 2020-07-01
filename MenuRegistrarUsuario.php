@@ -1,8 +1,9 @@
 <?php
+session_start();
 ?>
 
 <h2>Registrar Usuario Nuevo</h2>
-<form action="index.php" method="GET">
+<form action="index.php" method="POST">
     <div>Ingrese su número de teléfono:</div>
     <input type="number" name="telefonoN">
     <div>Ingrese el nombre del usuario:</div>
