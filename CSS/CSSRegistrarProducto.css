@@ -9,28 +9,26 @@ a{
     background-color: #D9984A;
     text-decoration: underline;
 }
-h1{
+h2{
     text-align: center;
     margin: 30px;
     padding: 30px;
-    font-size: 400%;
+    font-size: 300%;
 }
-#btnIniciarSesion, #btnRegistrarUsuario, #btnRegistrarProducto, #btnSalirSesion{
+#fromRegistrarProducto{
+    background-color: white;
+    margin: auto;
+    text-align: center;
+    width: 500px;
+    padding: 30px;
+    border-radius: 25px;
+}
+#btnVolverRegistrarProducto{
     text-align: center;
     background-color: #D9984A;
     padding: 30px;
     width: 200px;
     margin: auto;
     border-radius: 25px;
-}
-#mensajeBienvenida{
-    text-align: center;
-    margin: auto;
-}
-.producto{
-    width: 25%;
-    text-align: center;
-    float: left;
-    background-color: white;
 }
 

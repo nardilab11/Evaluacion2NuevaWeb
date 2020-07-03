@@ -1,17 +1,27 @@
 <?php
 session_start();
 ?>
-
-<h2>Registrar Usuario Nuevo</h2>
-<form action="index.php" method="POST">
-    <div>Ingrese su número de teléfono:</div>
-    <input type="number" name="telefonoN">
-    <div>Ingrese el nombre del usuario:</div>
-    <input type="text" name="nombreN">
-    <div>Ingrese la contraseña:</div>
-    <input type="password" name="passN">
-    <div>Ingrese de nuevo la contraseña:</div>
-    <input type="password" name="passNConfirm">
-    <input type="submit" value="Registrarme">
-</form>
-<a href="index.php">Volver al Inicio</a>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link href="CSS/CSSRegistrarUsuario.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <h2>Registrar Usuario Nuevo</h2>
+        <form id="formRegistrarUsuario" action="index.php" method="POST">
+            <label>Ingrese su número de teléfono:</label>
+            <input type="number" name="telefonoN"> <br> <br>
+            <label>Ingrese el nombre del usuario:</label>
+            <input type="text" name="nombreN"> <br> <br>
+            <label>Ingrese la contraseña:</label>
+            <input type="password" name="passN"> <br> <br>
+            <label>Ingrese de nuevo la contraseña:</label>
+            <input type="password" name="passNConfirm"> <br> <br>
+            <input type="submit" value="Registrarme">
+        </form> <br>
+        <div id="btnVolverRegistrarUsuario">
+            <a href="index.php">Volver al Inicio</a>
+        </div>
+    </body>
+</html>

@@ -36,6 +36,8 @@ class CProducto {
 //Crear controlador producto solo una vez
 if(!(isset($_SESSION["instanciaCProducto"]))){
     $cproducto = new CProducto();
+    $productoNuevo = new Producto(112233, "Producto 1", 3000, 50);
+    $cproducto->agregarAlCatalogo($productoNuevo);
     $_SESSION["catalogo"] = serialize($cproducto);
     $_SESSION["instanciaCProducto"] = "si";
 }

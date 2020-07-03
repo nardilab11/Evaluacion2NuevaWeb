@@ -48,9 +48,14 @@ include_once 'Controlador/CProducto.php';
             </div><?php 
         }?> 
         <!-- Catalogo de productos -->
-        <div><?php
-            foreach (unserialize($_SESSION["catalogo"])->getCatalogo() as $prod){
-                echo ($prod->getNombre()."\n");
+        <div id="catalogo"><?php
+            foreach (unserialize($_SESSION["catalogo"])->getCatalogo() as $prod){?>
+            <div class="producto"><?php
+                echo ($prod->getNombre());?><br>
+                <img src="Img/box.png" alt="" width=100" height="100"/> <br><?php
+                echo ("Precio: ".$prod->getPrecio());?> <br> <?php
+                echo ("En stock: ".$prod->getCantidad());?>
+            </div><?php
             }?>
         </div>
     </body>

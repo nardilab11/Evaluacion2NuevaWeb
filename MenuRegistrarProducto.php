@@ -1,18 +1,27 @@
 <?php
 session_start();
 ?>
-
-<h2>Registrar Producto Nuevo</h2>
-<form action="index.php" method="POST">
-    <div>Ingrese el número de identificación:</div>
-    <input type="number" name="idPN">
-    <div>Ingrese el nombre:</div>
-    <input type="text" name="nombrePN">
-    <div>Ingrese el precio:</div>
-    <input type="number" name="precioPN">
-    <div>Ingrese la cantidad disponible:</div>
-    <input type="number" name="cantidadPN">
-    <input type="submit" value="Registrar producto">
-</form>
-<a href="index.php">Volver al Inicio</a>
-
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link href="CSS/CSSRegistrarProducto.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <h2>Registrar Producto Nuevo</h2>
+        <form id="fromRegistrarProducto" action="index.php" method="POST">
+            <label>Ingrese el número de identificación:</label>
+            <input type="number" name="idPN"> <br> <br>
+            <label>Ingrese el nombre:</label>
+            <input type="text" name="nombrePN"> <br> <br>
+            <label>Ingrese el precio:</label>
+            <input type="number" name="precioPN"> <br> <br>
+            <label>Ingrese la cantidad disponible:</label>
+            <input type="number" name="cantidadPN"> <br> <br>
+            <input type="submit" value="Registrar producto"> 
+        </form> <br>
+        <div id="btnVolverRegistrarProducto">
+            <a href="index.php">Volver al Inicio</a>
+        </div>
+    </body>
+</html>
