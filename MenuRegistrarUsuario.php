@@ -11,13 +11,13 @@ session_start();
         <h2>Registrar Usuario Nuevo</h2>
         <form id="formRegistrarUsuario" action="index.php" method="POST">
             <label>Ingrese su número de teléfono:</label>
-            <input type="number" name="telefonoN"> <br> <br>
+            <input type="number" name="telefonoN" required maxlength="9"> <br> <br>
             <label>Ingrese el nombre del usuario:</label>
-            <input type="text" name="nombreN"> <br> <br>
+            <input type="text" name="nombreN" required maxlength="20"> <br> <br>
             <label>Ingrese la contraseña:</label>
-            <input type="password" name="passN"> <br> <br>
+            <input type="password" name="passN" required maxlength="20"> <br> <br>
             <label>Ingrese de nuevo la contraseña:</label>
-            <input type="password" name="passNConfirm"> <br> <br>
+            <input type="password" name="passNConfirm" required maxlength="20"> <br> <br>
             <input type="submit" value="Registrarme">
         </form> <br>
         <div id="btnVolverRegistrarUsuario">

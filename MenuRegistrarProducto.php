@@ -11,13 +11,13 @@ session_start();
         <h2>Registrar Producto Nuevo</h2>
         <form id="fromRegistrarProducto" action="index.php" method="POST">
             <label>Ingrese el número de identificación:</label>
-            <input type="number" name="idPN"> <br> <br>
+            <input type="number" name="idPN" required maxlength="9"> <br> <br>
             <label>Ingrese el nombre:</label>
-            <input type="text" name="nombrePN"> <br> <br>
+            <input type="text" name="nombrePN" required maxlength="30"> <br> <br>
             <label>Ingrese el precio:</label>
-            <input type="number" name="precioPN"> <br> <br>
+            <input type="number" name="precioPN" required maxlength="7"> <br> <br>
             <label>Ingrese la cantidad disponible:</label>
-            <input type="number" name="cantidadPN"> <br> <br>
+            <input type="number" name="cantidadPN" required maxlength="4"> <br> <br>
             <input type="submit" value="Registrar producto"> 
         </form> <br>
         <div id="btnVolverRegistrarProducto">

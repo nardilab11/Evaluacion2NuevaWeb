@@ -57,26 +57,26 @@ include_once 'Controlador/CProducto.php';
         </div> <br>
         <div id="carrito"><?php
         if(isset(unserialize($_SESSION["catalogo"])->getCarrito()[0])){
-            foreach(unserialize($_SESSION["catalogo"])->getCarrito() as $item){?>
+            foreach(unserialize($_SESSION["catalogo"])->getCarrito() as $item){ ?>
                 <div class="item"> <br><?php
                     echo ($item->getNombre());?><br>
-                    <img src="Img/box.png" alt="" width=100" height="100"/> <br><?php
-                    echo ("Precio: ".$item->getPrecio());?> <br> <?php
+                    <img src="Img/box.png" alt="" width=100" height="100"/> <br> <?php
+                    echo ("Precio: $".$item->getPrecio());?> <br> <?php
                     echo ("En stock: ".$item->getCantidad());?> 
-                </div><?php
+                </div> <?php
             }
-        }else{?>
+        }else{ ?>
             <br>
             <div id="lblCarritoVacio">
                 <label>Su carrito de compra está vacío.</label>
-            </div> <br><?php
-        }?>    
-         </div><?php
-        if(isset(unserialize($_SESSION["catalogo"])->getCarrito()[0])){?>
+            </div> <br> <?php
+        } ?>    
+         </div> <?php
+        if(isset(unserialize($_SESSION["catalogo"])->getCarrito()[0])){ ?>
             <div id="btnHacerCompra">
-                <a>Hacer Compra</a>
-            </div><?php
-        }?>
+                <a href="MenuCompra.php" >Hacer Compra</a>
+            </div> <?php
+        } ?>
         <!-- Catalogo de productos -->
         <br>
         <div id="lblCatalogo">
@@ -88,7 +88,7 @@ include_once 'Controlador/CProducto.php';
             <div class="producto"> <br><?php
                 echo ($prod->getNombre());?><br>
                 <img src="Img/box.png" alt="" width=100" height="100"/> <br><?php
-                echo ("Precio: ".$prod->getPrecio());?> <br> <?php
+                echo ("Precio: $".$prod->getPrecio());?> <br> <?php
                 echo ("En stock: ".$prod->getCantidad());?> 
                 <form action="index.php" method="POST">
                     <input type="hidden" name="idCarrito" value=<?php echo($prod->getId()); ?>><br>

@@ -1,0 +1,42 @@
+body{
+    font-family: 'Rubik', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    background-color: #BFB0AA;
+}
+a{
+    color: black;
+}
+.itemCompra{
+    width: 96%;
+    margin: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    float: left;
+    background-color: #9BCCB0;
+    border-radius: 25px;
+    border: solid;
+    border-color: #607F6E;
+}
+#lblTotal{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    font-size: 200%;
+}
+#lblNoSesionCompra{
+    padding: 50px;
+    text-align: center;
+    margin: auto;
+    font-size: 200%;
+}
+.btnVolverCompra{
+    text-align: center;
+    background-color: #D9984A;
+    padding: 30px;
+    width: 200px;
+    margin: auto;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+

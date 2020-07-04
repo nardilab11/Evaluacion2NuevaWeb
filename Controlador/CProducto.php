@@ -54,6 +54,7 @@ if(isset($_POST["idPN"])){
     $_SESSION["catalogo"] = serialize($cproductoT);
 }
 
+//Agregar producto al carrito
 if(isset($_POST["idCarrito"])){
     foreach (unserialize($_SESSION["catalogo"])->getCatalogo() as $prod){
         if($prod->getId() == $_POST["idCarrito"]){

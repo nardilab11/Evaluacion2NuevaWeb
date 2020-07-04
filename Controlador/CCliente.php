@@ -36,13 +36,25 @@ if(!(isset($_SESSION["instanciaCCliente"]))){
 //Registrar usuario
 if(isset($_POST["telefonoN"])){
     //Hacer la validacion para que sea único
-    $telefonoNuevo = $_POST["telefonoN"];
-    $nombreNuevo = $_POST["nombreN"];
-    $passNueva = $_POST["passN"];
-    $clienteNuevo = new Cliente($telefonoNuevo, $nombreNuevo, $passNueva);
-    $cclienteT = unserialize($_SESSION["clientes"]);
-    $cclienteT->agregarCliente($clienteNuevo);
-    $_SESSION["clientes"] = serialize($cclienteT);
+    $idUnico = true;
+    foreach (unserialize($_SESSION["clientes"])->getClientes() as $value){
+        if($value->getTelefono() == $_POST["telefonoN"]){
+            $idUnico = false;
+            break;
+        }
+    }
+    if($idUnico){
+        //Si al registrar usuario las contraseñas no son iguales
+        if($_POST["passN"] === $_POST["passNConfirm"]){
+            $telefonoNuevo = $_POST["telefonoN"];
+            $nombreNuevo = $_POST["nombreN"];
+            $passNueva = $_POST["passN"];
+            $clienteNuevo = new Cliente($telefonoNuevo, $nombreNuevo, $passNueva);
+            $cclienteT = unserialize($_SESSION["clientes"]);
+            $cclienteT->agregarCliente($clienteNuevo);
+            $_SESSION["clientes"] = serialize($cclienteT);
+        }
+    }
 }
 
 //Iniciar sesión
