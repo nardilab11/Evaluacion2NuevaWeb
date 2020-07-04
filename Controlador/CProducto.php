@@ -53,3 +53,14 @@ if(isset($_POST["idPN"])){
     $cproductoT->agregarAlCatalogo($productoNuevo);
     $_SESSION["catalogo"] = serialize($cproductoT);
 }
+
+if(isset($_POST["idCarrito"])){
+    foreach (unserialize($_SESSION["catalogo"])->getCatalogo() as $prod){
+        if($prod->getId() == $_POST["idCarrito"]){
+            $cproductoT = unserialize($_SESSION["catalogo"]);
+            $cproductoT->agregarAlCarrito($prod);
+            $_SESSION["catalogo"] = serialize($cproductoT);
+            break;
+        }
+    }
+}

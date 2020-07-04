@@ -27,10 +27,50 @@ h1{
     text-align: center;
     margin: auto;
 }
+#lblCatalogo{
+    text-align: center;
+    font-size: 150%;
+}
+#catalogo{
+    margin-left: 10px;
+    margin-top: 20px;
+}
 .producto{
-    width: 25%;
+    width: 31%;
+    margin: 5px;
     text-align: center;
     float: left;
-    background-color: white;
+    background-color: #BF946F;
+    border-radius: 25px;
+    border: solid;
+    border-color: brown;
 }
-
+#lblCarrito{
+    text-align: center;
+    font-size: 150%;
+}
+#lblCarritoVacio{
+    text-align: center;
+}
+#carrito{
+    margin-left: 20px;
+}
+.item{
+    width: 96%;
+    margin: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    float: left;
+    background-color: #9BCCB0;
+    border-radius: 25px;
+    border: solid;
+    border-color: #607F6E;
+}
+#btnHacerCompra{
+    text-align: center;
+    background-color: #D9984A;
+    padding: 25px;
+    width: 200px;
+    margin: auto;
+    border-radius: 25px;
+}

@@ -21,6 +21,7 @@ include_once 'Controlador/CProducto.php';
     <body>
         <h1>Mi Tienda Online</h1>
         <?php
+        
         //Validar si es cuenta admin (num: 11112222 U: admin C: admin para poder registrar productos
         if(isset($_SESSION["user"])){?>
             <!-- Mensaje que reconoce al usuario -->
@@ -34,6 +35,7 @@ include_once 'Controlador/CProducto.php';
                     </div><br><?php
             }
         }
+        
         //Sesión iniciada? Sí: Mostrar "Salir Sesión" No: Mostrar "Iniciar Sesión y Registrar Usuario"
         if(!(isset($_SESSION["user"]))){?>
             <div id="btnIniciarSesion">
@@ -41,20 +43,57 @@ include_once 'Controlador/CProducto.php';
             </div> <br>
             <div id="btnRegistrarUsuario">
                 <a href="MenuRegistrarUsuario.php">Registrar Usuario</a>
-            </div><?php
+            </div> <?php
         }else{?> 
             <div id="btnSalirSesion">
                 <a href="Controlador/CSalirSesion.php" >Salir de la Sesión</a>
-            </div><?php 
-        }?> 
+            </div> <?php 
+        }?>
+        <br> <br>
+        
+        <!-- Carrito de compra -->
+        <div id="lblCarrito">
+            <label>Su carrito de compra:</label>
+        </div> <br>
+        <div id="carrito"><?php
+        if(isset(unserialize($_SESSION["catalogo"])->getCarrito()[0])){
+            foreach(unserialize($_SESSION["catalogo"])->getCarrito() as $item){?>
+                <div class="item"> <br><?php
+                    echo ($item->getNombre());?><br>
+                    <img src="Img/box.png" alt="" width=100" height="100"/> <br><?php
+                    echo ("Precio: ".$item->getPrecio());?> <br> <?php
+                    echo ("En stock: ".$item->getCantidad());?> 
+                </div><?php
+            }
+        }else{?>
+            <br>
+            <div id="lblCarritoVacio">
+                <label>Su carrito de compra está vacío.</label>
+            </div> <br><?php
+        }?>    
+         </div><?php
+        if(isset(unserialize($_SESSION["catalogo"])->getCarrito()[0])){?>
+            <div id="btnHacerCompra">
+                <a>Hacer Compra</a>
+            </div><?php
+        }?>
         <!-- Catalogo de productos -->
+        <br>
+        <div id="lblCatalogo">
+            <label>Catálogo de compra:</label>
+        </div> <br>
+        
         <div id="catalogo"><?php
             foreach (unserialize($_SESSION["catalogo"])->getCatalogo() as $prod){?>
-            <div class="producto"><?php
+            <div class="producto"> <br><?php
                 echo ($prod->getNombre());?><br>
                 <img src="Img/box.png" alt="" width=100" height="100"/> <br><?php
                 echo ("Precio: ".$prod->getPrecio());?> <br> <?php
-                echo ("En stock: ".$prod->getCantidad());?>
+                echo ("En stock: ".$prod->getCantidad());?> 
+                <form action="index.php" method="POST">
+                    <input type="hidden" name="idCarrito" value=<?php echo($prod->getId()); ?>><br>
+                    <input type="submit" value="Agregar al Carrito">
+                </form> <br>
             </div><?php
             }?>
         </div>
